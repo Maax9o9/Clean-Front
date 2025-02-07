@@ -1,0 +1,51 @@
+<div class="product-management-container">
+    <h2>Gestión de Productos</h2>
+
+    <div class="navigation">
+      <button mat-raised-button color="primary" routerLink="/orders">Ir a Gestión de Órdenes</button>
+    </div>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese el ID del producto</mat-label>
+      <input matInput [(ngModel)]="productId" type="number" placeholder="ID del producto" />
+    </mat-form-field>
+  
+    <button mat-raised-button color="accent" (click)="getProducts()">Obtener Producto</button>
+  
+    <div *ngIf="product">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre del Producto</mat-label>
+        <input matInput [(ngModel)]="product.Name" placeholder="Nombre" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Precio</mat-label>
+        <input matInput [(ngModel)]="product.Price" type="number" placeholder="Precio" />
+      </mat-form-field>
+  
+      <button mat-raised-button color="accent" (click)="updateProduct()">Actualizar Producto</button>
+    </div>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Nuevo Producto</mat-label>
+      <input matInput [(ngModel)]="newProduct.Name" placeholder="Nombre" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Precio</mat-label>
+      <input matInput [(ngModel)]="newProduct.Price" type="number" placeholder="Precio" />
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="addProduct()">Crear Producto</button>
+  
+    <div *ngIf="products.length > 0">
+      <h3>Lista de Productos</h3>
+      <ul>
+        <li *ngFor="let product of products">
+          <p><strong>ID:</strong> {{ product.ID }} | <strong>Nombre:</strong> {{ product.Name }} | <strong>Precio:</strong> {{ product.Price }}</p>
+          <button mat-button color="warn" (click)="deleteProduct(product.ID)">Eliminar</button>
+          <button mat-button color="accent" (click)="productId = product.ID; getProducts()">Ver Producto</button>
+        </li>
+      </ul>
+    </div>
+  </div>

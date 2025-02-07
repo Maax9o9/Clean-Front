@@ -1,0 +1,47 @@
+<div 
+  
+  <h2>Gestión de Órdenes</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ingrese el ID de la orden</mat-label>
+    <input matInput [(ngModel)]="orderId" type="number" placeholder="ID de la orden" />
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" (click)="startShortPolling()">Iniciar Polling</button>
+  <button mat-raised-button color="warn" (click)="stopPolling()">Detener Polling</button>
+
+  <div *ngIf="order">
+    <mat-form-field appearance="fill">
+      <mat-label>Cambiar estado de la orden</mat-label>
+      <mat-select [(ngModel)]="order.Status">
+        <mat-option *ngFor="let status of statuses" [value]="status">{{ status }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="updateOrderStatus()">Actualizar Estado</button>
+  </div>
+
+  <mat-form-field appearance="fill" *ngIf="statuses.length > 0">
+    <mat-label>Estado de la Orden</mat-label>
+    <mat-select [(ngModel)]="newOrder.Status">
+      <mat-option *ngFor="let status of statuses" [value]="status">{{ status }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="createOrder()">Crear Orden</button>
+
+  <div *ngIf="orders.length > 0">
+    <h3>Órdenes Existentes</h3>
+    <ul>
+      <li *ngFor="let order of orders">
+        <p>
+          <strong>ID:</strong> {{ order.ID }} |
+          <strong>Estado:</strong> {{ order.Status }} |
+          <strong>Fecha:</strong> {{ formatDate(order.OrderDate) }}
+        </p>
+        <button mat-button color="warn" (click)="deleteOrder(order.ID)">Eliminar</button>
+        <button mat-button color="accent" (click)="orderId = order.ID; getOrderStatus()">Ver Estado</button>
+      </li>
+    </ul>
+  </div>
+</div>
