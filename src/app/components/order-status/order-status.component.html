@@ -1,5 +1,4 @@
-<div 
-  
+<div class="order-status-container">
   <h2>Gestión de Órdenes</h2>
 
   <mat-form-field appearance="fill">
@@ -40,7 +39,6 @@
           <strong>Fecha:</strong> {{ formatDate(order.OrderDate) }}
         </p>
         <button mat-button color="warn" (click)="deleteOrder(order.ID)">Eliminar</button>
-        <button mat-button color="accent" (click)="orderId = order.ID; getOrderStatus()">Ver Estado</button>
       </li>
     </ul>
   </div>
