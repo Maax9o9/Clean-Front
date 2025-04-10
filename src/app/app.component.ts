@@ -9,9 +9,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { NgIf, NgFor, DecimalPipe } from '@angular/common';
 
-import { OrderService } from './services/order.service';
-import { OrderStatusComponent } from './components/order-status/order-status.component';
-import { ProductComponent } from './components/products/products.component';
+import { OrderService } from './features/orders/data/repository/order.service';
+import { ProductService } from './features/products/data/repository/product.service';
+import { ProductsComponent } from './features/products/presentation/components/products.component';
+import { OrderStatusComponent } from './features/orders/presentation/components/order-status.component';
 import { MatOption } from '@angular/material/core';
 
 @Component({
@@ -30,13 +31,13 @@ import { MatOption } from '@angular/material/core';
     MatDividerModule,
     DecimalPipe,
     OrderStatusComponent,
-    ProductComponent,
+    ProductsComponent,
     MatOption,
 
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [OrderService] 
+  providers: [OrderService, ProductService], 
 })
 export class AppComponent {
   title = 'Abarrotes';

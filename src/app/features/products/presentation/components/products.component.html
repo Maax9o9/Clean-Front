@@ -1,6 +1,6 @@
 <div class="product-management-container">
     <h2>Gestión de Productos</h2>
-
+  
     <div class="navigation">
       <button mat-raised-button color="primary" routerLink="/orders">Ir a Gestión de Órdenes</button>
     </div>
@@ -42,9 +42,12 @@
       <h3>Lista de Productos</h3>
       <ul>
         <li *ngFor="let product of products">
-          <p><strong>ID:</strong> {{ product.ID }} | <strong>Nombre:</strong> {{ product.Name }} | <strong>Precio:</strong> {{ product.Price }}</p>
+          <p>
+            <strong>ID:</strong> {{ product.ID }} |
+            <strong>Nombre:</strong> {{ product.Name }} |
+            <strong>Precio:</strong> {{ product.Price }}
+          </p>
           <button mat-button color="warn" (click)="deleteProduct(product.ID)">Eliminar</button>
-          <button mat-button color="accent" (click)="productId = product.ID; getProducts()">Ver Producto</button>
         </li>
       </ul>
     </div>

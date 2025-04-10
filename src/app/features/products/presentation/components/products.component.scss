@@ -1,0 +1,52 @@
+.product-management-container {
+    padding: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  
+    h2 {
+      color: #333;
+      margin-bottom: 16px;
+    }
+  
+    .navigation {
+      margin-bottom: 16px;
+  
+      button {
+        font-size: 14px;
+      }
+    }
+  
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  
+    button {
+      margin-right: 8px;
+      margin-bottom: 16px;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+  
+      li {
+        padding: 8px;
+        background: #fff;
+        border: 1px solid #ddd;
+        margin-bottom: 8px;
+        border-radius: 4px;
+  
+        p {
+          margin: 0;
+          display: flex;
+          justify-content: space-between;
+        }
+  
+        button {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
